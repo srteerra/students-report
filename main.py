@@ -6,18 +6,23 @@ def InsertStudent(nameVar, ageVar, groupVar, turnVar):
     students = [nameVar, ageVar, groupVar, turnVar]
 
     if(groupVar.lower() == "piano"):
-        subject[0].append(students)
+        if(len(subject[0]) < 12):
+            subject[0].append(students)
+        else:
+            print("The piano class is already full")
     elif(groupVar.lower() == "guitar"):
-        subject[1].append(students)
+        if(len(subject[1]) < 12):
+            subject[1].append(students)
+        else:
+            print("The guitar class is already full")
     elif(groupVar.lower() == "violin"):
         subject[2].append(students)
 
-
 InsertStudent(
-    input("Enter a name: "),
+    input("Enter a name: ").lower(),
     input("Enter an age: "),
-    input("Enter a group: "),
-    input("Enter a turn: ")
+    input("Enter a group: ").lower(),
+    input("Enter a turn: ").lower()
 )
 
 print(subject[0])
