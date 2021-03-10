@@ -1,19 +1,26 @@
-# [piano[], guitar[], violin[]]
+# [piano[0], guitar[1], violin[2]]
 # guitar and violin have maximum places to 12 people
-subject = [[] , [] , []]
+subject = [[],[],[]]
 
-class Student:
-    def __init__(self, name, age, group, turn):
-        self.name = name
-        self.group = group
-        self.age = age
-        self.turn = turn
+def InsertStudent(nameVar, ageVar, groupVar, turnVar):
+    students = [nameVar, ageVar, groupVar, turnVar]
 
-    def enter(self):
-        self.name = print("Enter a new student: ")
-        self.age = print("Enter the age of the student: ")
-        self.group = print("Enter the group of the student: ")
-        self.turn = print("Enter the turn of the student: ")
+    if(groupVar.lower() == "piano"):
+        subject[0].append(students)
+    elif(groupVar.lower() == "guitar"):
+        subject[1].append(students)
+    elif(groupVar.lower() == "violin"):
+        subject[2].append(students)
 
-newstudent = input("Enter a new student: ")
+
+InsertStudent(
+    input("Enter a name: "),
+    input("Enter an age: "),
+    input("Enter a group: "),
+    input("Enter a turn: ")
+)
+
+print(subject[0])
+print(subject[1])
+print(subject[2])
 
