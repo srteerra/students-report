@@ -19,11 +19,13 @@ class Fill:
                     subject[0].append(students)
                 else:
                     print("The piano class is already full")
+                    menu()
             elif(groupVar.lower() == "guitar"):
                 if(len(subject[1]) < 12):
                     subject[1].append(students)
                 else:
                     print("The guitar class is already full")
+                    menu()
             elif(groupVar.lower() == "violin"):
                 subject[2].append(students)
 
@@ -49,16 +51,31 @@ class insertstudent:
 class allstudents:
 
     def __init__(self):
-        print(*subject, sep = "\n")
-        # print(subject[0])
-        # print(subject[1])
-        # print(subject[2])
+        print(*subject[1], sep = "\n")
+        print(*subject[2], sep = "\n")
+        print(*subject[0], sep = "\n")
 
         cont = input("Continue? [Y]: ")
         if(cont.upper() == "Y"):
             menu()
         else:
             menu()
+
+class groupreport:
+
+    def __init__(self):
+        print("\nPiano Students:")
+        print(*subject[0], sep = "\n")
+        print("\nGuitar Students:")
+        print(*subject[1], sep = "\n")
+        print("\nViolin Students:")
+        print(*subject[2], sep = "\n")
+
+class turnreport:
+
+    def __init__(self):
+        print(subject[0].sort())
+
 
 class menu:
 
@@ -77,6 +94,10 @@ class menu:
             insertstudent()
         elif(selection == "2"):
             allstudents()
+        elif(selection == "3"):
+            groupreport()
+        elif(selection == "4"):
+            turnreport()
 
 class __init__:
     menu()
