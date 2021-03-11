@@ -10,7 +10,7 @@ class Fill:
         students = [nameVar, ageVar, groupVar, turnVar]
 
         # guitar and violin have maximum places to 12 people
-        if(groupVar.lower() != "piano" or groupVar.lower() != "guitar" or groupVar.lower() != "violin"):
+        if(groupVar.lower() != "piano" and groupVar.lower() != "guitar" and groupVar.lower() != "violin"):
             print("You have a mistake in the group you selected, please enter a valid group")
             insertstudent()
         else:
@@ -36,7 +36,6 @@ class Fill:
                 print("Your selection is not valid")
                 menu()
 
-
 class insertstudent:
 
     def __init__(self):
@@ -50,17 +49,15 @@ class insertstudent:
 class allstudents:
 
     def __init__(self):
-        print(subject[0])
-        print(subject[1])
-        print(subject[2])
+        print(*subject, sep = "\n")
+        # print(subject[0])
+        # print(subject[1])
+        # print(subject[2])
 
-        cont = input("Continue? [Y/N]: ")
+        cont = input("Continue? [Y]: ")
         if(cont.upper() == "Y"):
-            insertstudent()
-        elif(cont.upper() == "N"):
             menu()
         else:
-            print("Your selection is not valid")
             menu()
 
 class menu:
