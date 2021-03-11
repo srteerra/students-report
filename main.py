@@ -10,18 +10,32 @@ class Fill:
         students = [nameVar, ageVar, groupVar, turnVar]
 
         # guitar and violin have maximum places to 12 people
-        if(groupVar.lower() == "piano"):
-            if(len(subject[0]) < 12):
-                subject[0].append(students)
+        if(groupVar.lower() != "piano" or groupVar.lower() != "guitar" or groupVar.lower() != "violin"):
+            print("You have a mistake in the group you selected, please enter a valid group")
+            insertstudent()
+        else:
+            if(groupVar.lower() == "piano"):
+                if(len(subject[0]) < 12):
+                    subject[0].append(students)
+                else:
+                    print("The piano class is already full")
+            elif(groupVar.lower() == "guitar"):
+                if(len(subject[1]) < 12):
+                    subject[1].append(students)
+                else:
+                    print("The guitar class is already full")
+            elif(groupVar.lower() == "violin"):
+                subject[2].append(students)
+
+            cont = input("Add another student? [Y/N]: ")
+            if(cont.upper() == "Y"):
+                insertstudent()
+            elif(cont.upper() == "N"):
+                menu()
             else:
-                print("The piano class is already full")
-        elif(groupVar.lower() == "guitar"):
-            if(len(subject[1]) < 12):
-                subject[1].append(students)
-            else:
-                print("The guitar class is already full")
-        elif(groupVar.lower() == "violin"):
-            subject[2].append(students)
+                print("Your selection is not valid")
+                menu()
+
 
 class insertstudent:
 
@@ -33,10 +47,40 @@ class insertstudent:
 
         Fill(self.name, self.age, self.group, self.turn)
 
-class __init__:
-    insertstudent()
+class allstudents:
 
-print(subject[0])
-print(subject[1])
-print(subject[2])
+    def __init__(self):
+        print(subject[0])
+        print(subject[1])
+        print(subject[2])
+
+        cont = input("Continue? [Y/N]: ")
+        if(cont.upper() == "Y"):
+            insertstudent()
+        elif(cont.upper() == "N"):
+            menu()
+        else:
+            print("Your selection is not valid")
+            menu()
+
+class menu:
+
+    def __init__(self):
+        print("---------- Menu ----------\n")
+        print("[1] Add new student")
+        print("[2] Show all the students")
+        print("\n---Reports:")
+        print("[3] Generate a report of Group")
+        print("[4] Generate a report of Turn")
+        print("[5] Generate a report of Students")
+
+        selection = input("\nEnter your option: ")
+
+        if(selection == "1"):
+            insertstudent()
+        elif(selection == "2"):
+            allstudents()
+
+class __init__:
+    menu()
 
