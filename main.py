@@ -64,17 +64,46 @@ class allstudents:
 class groupreport:
 
     def __init__(self):
-        print("\nPiano Students:")
+
+        print("--------------------------+")
+        if(len(subject[0]) >= 3):
+            pianoStatus = " [Open] "
+        else:
+            pianoStatus = " [Cancelled] "
+        print("\nPiano Students:", len(subject[0]), pianoStatus)
         print(*subject[0], sep = "\n")
-        print("\nGuitar Students:")
+        print("--------------------------+")
+        if(len(subject[1]) >= 5):
+            guitarStatus = " [Open] "
+        else:
+            guitarStatus = " [Cancelled] "
+        print("\nGuitar Students:", len(subject[1]), guitarStatus)
         print(*subject[1], sep = "\n")
-        print("\nViolin Students:")
+        print("--------------------------+")
+        if(len(subject[2]) >= 5):
+            violinStatus = " [Open] "
+        else:
+            violinStatus = " [Cancelled] "
+        print("\nViolin Students:", len(subject[2]), violinStatus)
         print(*subject[2], sep = "\n")
+        print("--------------------------+")
+
+        cont = input("Continue? [Y]: ")
+        if(cont.upper() == "Y"):
+            menu()
+        else:
+            menu()
 
 class turnreport:
 
     def __init__(self):
-        print(subject[0].sort())
+        
+
+        cont = input("Continue? [Y]: ")
+        if(cont.upper() == "Y"):
+            menu()
+        else:
+            menu()
 
 
 class menu:
