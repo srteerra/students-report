@@ -9,6 +9,14 @@ class Fill:
     def __init__(self, nameVar, ageVar, groupVar, turnVar):
         students = [nameVar, ageVar, groupVar, turnVar]
 
+        turnAcont = 0
+        turnBcont = 0
+
+        if(groupVar.lower() == "a"):
+            turnAcont += 1
+        elif(groupVar.lower() == "b"):
+            turnBcont += 1
+
         # guitar and violin have maximum places to 12 people
         if(groupVar.lower() != "piano" and groupVar.lower() != "guitar" and groupVar.lower() != "violin"):
             print("You have a mistake in the group you selected, please enter a valid group")
@@ -41,6 +49,7 @@ class Fill:
 class insertstudent:
 
     def __init__(self):
+
         self.name = input("Enter a name: ").lower()
         self.age = input("Enter an age: ")
         self.group = input("Enter a group: ").lower()
@@ -97,7 +106,23 @@ class groupreport:
 class turnreport:
 
     def __init__(self):
+        fil = []
         
+        # creating a list with piano class
+        for x in range(len(subject[0])):
+            fil.append(subject[0][x][0])
+        
+        # creating a list with guitar class
+        for x in range(len(subject[1])):
+            fil.append(subject[1][x][0])
+
+        # creating a list with violin class
+        for x in range(len(subject[2])):
+            fil.append(subject[2][x][0])
+
+        print(fil)
+        fil.sort()
+        print(fil)
 
         cont = input("Continue? [Y]: ")
         if(cont.upper() == "Y"):
